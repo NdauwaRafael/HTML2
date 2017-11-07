@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+  <table width="100%">
+   <tr>
+     <td width="10%"><a href="index.html">Go Home</a></td>
+     <td width="80%">
+       <h2>WEB WORKERS</h2>
+       <hr>
+       <br><br>
+       <button onclick="startWorker()">Start Worker</button>
+       <button onclick="stopWorker()">Stop Worker</button>
+
+       <p id="result">Working.....<p/>
+
+     </td>
+     <td width="10%"></td>
+   </tr>
+
+  </table>
+
+
+<script>
+var w;
+
+function startWorker() {
+    if(typeof(Worker) !== "undefined") {
+        if(typeof(w) == "undefined") {
+            w = new Worker("workers.js");
+        }
+
+        w.onmessage = function(event) {
+            document.getElementById("result").innerHTML = event.data;
+        };
+
+    } else {
+        document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Workers...";
+    }
+}
+
+function stopWorker() {
+    w.terminate();
+    w = undefined;
+}
+</script>
+
+</body>
+</html>

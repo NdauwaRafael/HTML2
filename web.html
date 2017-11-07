@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+
+function add(){
+   var name = document.getElementById('name').value;
+    localStorage.name= name ;
+
+   document.getElementById("result").innerHTML=+'Hallo '+' '+localStorage.name +' '+' I hope you had a lovely day';
+
+}
+
+
+
+function view(){
+  var yourName = document.getElementById('name1').value;
+  sessionStorage.name = yourName;
+
+document.getElementById("result1").innerHTML=+'Hallo '+ ' '+sessionStorage.name  +' '+' I hope you had a lovely day';
+
+}
+
+if (localStorage.name) {
+document.getElementById("result").innerHTML=+'Hallo '+' '+localStorage.name +' '+' I hope you had a lovely day';
+}
+
+if (sessionStorage.name) {
+  document.getElementById("result1").innerHTML=+'Hallo '+ ' '+sessionStorage.name  +' '+' I hope you had a lovely day';
+
+}
+
+</script>
+</head>
+<body>
+
+<table width="100%">
+ <tr>
+   <td width="10%"></td>
+   <td width="80%">
+     <h2>WEB STORAGE</h2>
+     <i>Local storage </i>
+     <hr><br><br>
+    <label>Add Your Name</label>
+    <input type="text" id="name">
+    <button onclick="add()">ADD NAMe</button>
+
+    <br/></br>
+
+
+
+    <p id ="result"></p>
+<br><br>
+    <i>Session Storage</i>
+    <hr>
+    <br><br>
+
+    <label>Add Your Name</label>
+    <input type="text" id="name1">
+    <button onclick="view()">ADD NAME</button>
+    <br/></br>
+    <p id ="result1"></p>
+
+   </td>
+   <td width="10%"></td>
+ </tr>
+
+</table>
+
+</body>
+</html>

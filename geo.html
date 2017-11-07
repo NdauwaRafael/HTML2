@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<table>
+  <tr>
+      <td width="10%"></td>
+      <td width="40%"><a href="map.html">Display on a map</a></td>
+      <td width="40%"><a href="index.html">Go Home</a></td>
+      <td width="10%"></td>
+  </tr>
+   <tr>
+     <td width="10%"><a href="index.html">Go Home</a></td>
+     <td width="80%">
+
+         <h2>GEOLOCATION</h2>
+         <hr>
+         <button onclick="getLocation()">Click Here >> <br></button>
+
+         <p id="location"></p>
+<br><br>
+
+
+         <script>
+         //getDiv
+         var x = document.getElementById("location");
+
+         function getLocation() {
+             if (navigator.geolocation) {
+                 navigator.geolocation.getCurrentPosition(showPosition);
+             } else {
+                 x.innerHTML = "Could not find a location or geolocation is not supported by this browser.";
+             }
+         }
+
+
+         function showPosition(position) {
+             x.innerHTML = "Latitude: " + position.coords.latitude +
+             "<br>Longitude: " + position.coords.longitude;
+         }
+
+
+
+         </script>
+
+
+
+         <!--==================================================================
+
+         ====================================================================-->
+
+     </td>
+     <td width="10%"></td>
+   </tr>
+
+</table>
+
+
+
+
+
+
+
+</body>
+</html>
