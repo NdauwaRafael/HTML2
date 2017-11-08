@@ -21,7 +21,10 @@
 
 
     <p id ="result"></p>
-    <div id="list"></div>
+    <div id="list">
+
+    </div>
+    <button type="submit" onclick="remove()"><h3>Remove ALL x</h3></button>
 <br><br>
     <i>Session Storage</i>
     <hr>
@@ -43,10 +46,10 @@
 
 function add(){
    var name = document.getElementById('name').value;
-    localStorage.setItem('name',name );
+    localStorage.setItem('name',name);
     var storedName = localStorage.getItem('name');
 displayList();
-   document.getElementById("result").innerHTML=+'Hallo '+' '+storedName +' '+' I hope you had a lovely day';
+   document.getElementById("result").innerHTML=' Hallo '+storedName +' '+' I hope you had a lovely day';
 
 }
 
@@ -64,7 +67,7 @@ function displayList(){
 
     var storedName1 = localStorage.getItem('name');
     var div = document.getElementById('list');
-    div.innerHTML += '<h4> ssss'+storedName1+' <button type="submit" onclick="remove()">Remove x</button>  </h4>';
+    div.innerHTML += '<h4> ssss'+storedName1+'   </h4>';
   }
 
 }
