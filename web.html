@@ -1,36 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script>
 
-function add(){
-   var name = document.getElementById('name').value;
-    localStorage.name= name ;
-
-   document.getElementById("result").innerHTML=+'Hallo '+' '+localStorage.name +' '+' I hope you had a lovely day';
-
-}
-
-
-
-function view(){
-  var yourName = document.getElementById('name1').value;
-  sessionStorage.name = yourName;
-
-document.getElementById("result1").innerHTML=+'Hallo '+ ' '+sessionStorage.name  +' '+' I hope you had a lovely day';
-
-}
-
-if (localStorage.name) {
-document.getElementById("result").innerHTML=+'Hallo '+' '+localStorage.name +' '+' I hope you had a lovely day';
-}
-
-if (sessionStorage.name) {
-  document.getElementById("result1").innerHTML=+'Hallo '+ ' '+sessionStorage.name  +' '+' I hope you had a lovely day';
-
-}
-
-</script>
 </head>
 <body>
 
@@ -43,13 +14,14 @@ if (sessionStorage.name) {
      <hr><br><br>
     <label>Add Your Name</label>
     <input type="text" id="name">
-    <button onclick="add()">ADD NAMe</button>
+    <button type="submit"  onclick="add()">ADD NAMe</button>
 
     <br/></br>
 
 
 
     <p id ="result"></p>
+    <div id="list"></div>
 <br><br>
     <i>Session Storage</i>
     <hr>
@@ -57,7 +29,7 @@ if (sessionStorage.name) {
 
     <label>Add Your Name</label>
     <input type="text" id="name1">
-    <button onclick="view()">ADD NAME</button>
+    <button type="submit"  onclick="view()">ADD NAME</button>
     <br/></br>
     <p id ="result1"></p>
 
@@ -67,5 +39,42 @@ if (sessionStorage.name) {
 
 </table>
 
+<script>
+
+function add(){
+   var name = document.getElementById('name').value;
+    localStorage.setItem('name',name );
+    var storedName = localStorage.getItem('name');
+
+   document.getElementById("result").innerHTML=+'Hallo '+' '+storedName +' '+' I hope you had a lovely day';
+
+}
+
+
+
+function view(){
+  var yourName = document.getElementById('name1').value;
+  sessionStorage.name = yourName;
+   document.getElementById("result1").innerHTML=+'Hallo '+ ' '+sessionStorage.name  +' '+' I hope you had a lovely day';
+
+}
+
+if (localStorage.name) {
+
+  var storedName1 = localStorage.getItem('name');
+  var div = document.getElementById('list');
+  div.innerHTML += '<li> ssss'+storedName1+' <button type="submit" onclick="remove()">Remove x</button>  </li>';
+  alert(storedName1);
+}
+
+function remove(){
+  localStorage.removeItem("name");
+}
+if (sessionStorage.name) {
+  document.getElementById("result1").innerHTML=+'Hallo '+ ' '+sessionStorage.name  +' '+' I hope you had a lovely day';
+
+}
+
+</script>
 </body>
 </html>
