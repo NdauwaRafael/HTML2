@@ -45,7 +45,7 @@ function add(){
    var name = document.getElementById('name').value;
     localStorage.setItem('name',name );
     var storedName = localStorage.getItem('name');
-
+displayList();
    document.getElementById("result").innerHTML=+'Hallo '+' '+storedName +' '+' I hope you had a lovely day';
 
 }
@@ -59,17 +59,23 @@ function view(){
 
 }
 
-if (localStorage.name) {
+function displayList(){
+  if (localStorage.name) {
 
-  var storedName1 = localStorage.getItem('name');
-  var div = document.getElementById('list');
-  div.innerHTML += '<li> ssss'+storedName1+' <button type="submit" onclick="remove()">Remove x</button>  </li>';
-  alert(storedName1);
+    var storedName1 = localStorage.getItem('name');
+    var div = document.getElementById('list');
+    div.innerHTML += '<h4> ssss'+storedName1+' <button type="submit" onclick="remove()">Remove x</button>  </h4>';
+  }
+
 }
+displayList();
+
 
 function remove(){
   localStorage.removeItem("name");
+  window.location.href="web.html";
 }
+
 if (sessionStorage.name) {
   document.getElementById("result1").innerHTML=+'Hallo '+ ' '+sessionStorage.name  +' '+' I hope you had a lovely day';
 
